@@ -4,10 +4,11 @@ import { useEffect } from 'react';
 import { ProductItem } from '../components/ProductItem';
 import { useGetProductByIdMutation } from '../modules/redux/api/productsAPI';
 import { clearProduct } from '../modules/redux/slices/productsSlice';
+import { Loader } from '../components/Loader';
 
 export const ProductPage = () => {
   const { product } = useAppSelector((state) => state.products);
-  const [getProductById] = useGetProductByIdMutation();
+  const [getProductById, { isLoading }] = useGetProductByIdMutation();
   const dispatch = useAppDispatch();
 
   const { id } = useParams();
@@ -21,6 +22,13 @@ export const ProductPage = () => {
     };
   }, [id]);
 
+  if (isLoading) {
+    return (
+      <div className="w-full grid place-items-center">
+        <Loader />
+      </div>
+    );
+  }
   if (!product) {
     return <div className="text-2xl">Product not Found</div>;
   }

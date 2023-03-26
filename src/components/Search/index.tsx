@@ -12,6 +12,7 @@ export const Search = () => {
   return (
     <div className="flex items-center gap-2">
       <input
+        type="search"
         onChange={handleChange}
         placeholder="Search"
         className="text-black p-1 rounded-lg outline-none"

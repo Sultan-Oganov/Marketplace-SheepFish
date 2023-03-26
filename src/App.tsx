@@ -3,6 +3,7 @@ import { HomePage, ProductPage } from './pages';
 import { Header } from './components/Header/index';
 import { Footer } from './components/Footer';
 import { CreateProduct } from './components/CreateProduct';
+import { Snackbar } from './components/Snackbar/index';
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
         </Routes>
       </main>
       <Footer />
+      <Snackbar />
     </>
   );
 };
